@@ -5,7 +5,7 @@
             <div class="col-lg-12">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/">Reminders</a></li>
                     <li class="breadcrumb-item active" aria-current="page"><?= ucwords($_SESSION['controller']);?></li>
                   </ol>
                 </nav>
@@ -19,5 +19,11 @@
         </div>
     </div>
 
+  <?php
+    foreach ($data['reminders'] as $reminder) {
+      echo "<p>" . $reminder['subject']. ' <a href="/reminder/update">update</a> delete</p>';
+    }
+
+  ?>
 
     <?php require_once 'app/views/templates/footer.php' ?>
