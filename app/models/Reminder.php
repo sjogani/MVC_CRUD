@@ -24,9 +24,12 @@ class Reminder {
       $statement->execute();
     }
 
-    public function update_reminder ($reminder_id) {
+    public function update_reminder ($id, $subject) {
       $db = db_connect();
-      
+      $statement = $db->prepare("UPDATE reminders SET subject = :subject WHERE id = :id;");
+      $statement->bindValue(':subject', $subject);
+      $statement->bindValue(':id', $id);
+      $statement->execute();
     }
 
     public function delete_reminder ($reminder_id) {
