@@ -14,4 +14,11 @@ class Reminders extends Controller {
       $R->create_reminder($subject);
       $this->index();
     }
+
+    public function delete() {
+      $id = $_REQUEST['id'];
+      $R = $this->model('Reminder');
+      $R->delete_reminder($id);
+      $this->index();
+    }
 }

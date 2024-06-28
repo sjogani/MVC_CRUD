@@ -31,7 +31,9 @@ class Reminder {
 
     public function delete_reminder ($reminder_id) {
       $db = db_connect();
-      
+      $statement = $db->prepare("DELETE FROM reminders WHERE id = :id;");
+      $statement->bindValue(':id', $reminder_id); 
+      $statement->execute();
 
     }
 
