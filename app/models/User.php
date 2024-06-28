@@ -33,6 +33,7 @@ class User {
       if (password_verify($password, $rows['password'])) {
           $_SESSION['auth'] = 1;
           $_SESSION['username'] = ucwords($username);
+          $_SESSION['userid'] = $rows['id'];
           unset($_SESSION['failedAuth']);
           return 'good'; // Log successful attempt
           header('Location: /home');

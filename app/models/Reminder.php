@@ -14,9 +14,25 @@ class Reminder {
       return $rows;
     }
 
+    public function create_reminder ($reminder_id) {
+      
+
+      $db = db_connect();
+      $statement = $db->prepare("INSERT INTO reminders (user_id,subject) VALUES (:userid, :subject);");
+      $statement->bindValue(':userid', $_SESSION['userid']);
+      $statement->bindValue(':subject', $reminder_id);
+      $statement->execute();
+    }
+
     public function update_reminder ($reminder_id) {
       $db = db_connect();
-      //do update statement
+      
+    }
+
+    public function delete_reminder ($reminder_id) {
+      $db = db_connect();
+      
+
     }
 
 }
